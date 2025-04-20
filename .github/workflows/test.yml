@@ -2,9 +2,9 @@ name: Run Jest Tests
 
 on:
   push:
-    branches: [main, section-2]
+    branches: [main, section-2, section-3]
   pull_request:
-    branches: [main, section-2]
+    branches: [main, section-2, section-3]
 
 jobs:
   test:
