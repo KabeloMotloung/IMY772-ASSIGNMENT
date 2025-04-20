@@ -24,10 +24,16 @@ jobs:
           cd hex-calculator
           npm install
 
-      - name: Run tests
+      - name: Run Jest tests
         run: |
           cd hex-calculator
           npm run test
+
+      - name: Start application
+        run: |
+          cd hex-calculator
+          npm run dev &
+          npx wait-on http://localhost:3000
 
       - name: Run Cypress tests
         run: |
