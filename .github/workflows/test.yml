@@ -1,4 +1,4 @@
-name: Run Jest Tests
+name: Run Jest and Cypress Tests
 
 on:
   push:
@@ -28,3 +28,8 @@ jobs:
         run: |
           cd hex-calculator
           npm run test
+
+      - name: Run Cypress tests
+        run: |
+          cd hex-calculator
+          npx cypress run
