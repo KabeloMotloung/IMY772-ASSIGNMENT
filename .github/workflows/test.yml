@@ -1,0 +1,41 @@
+name: Run Jest and Cypress Tests
+
+on:
+  push:
+    branches: [main, section-2, section-3]
+  pull_request:
+    branches: [main, section-2, section-3]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "21.x"
+
+      - name: Install dependencies
+        run: |
+          cd hex-calculator
+          npm install
+
+      - name: Run Jest tests
+        run: |
+          cd hex-calculator
+          npm run test
+
+      - name: Start application
+        run: |
+          cd hex-calculator
+          npm run dev &
+          npx wait-on http://localhost:3000
+
+      - name: Run Cypress tests
+        run: |
+          cd hex-calculator
+          npx cypress run
