@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - section-3
+      - section-4
 
 jobs:
   deploy:
